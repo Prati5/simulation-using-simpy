@@ -11,12 +11,20 @@ class ContainerTerminal:
         self.containers_unloaded = 0
 
     def load_container(self, container):
-        yield self.env.timeout(random.uniform(1, 3))  # Example loading time
+        """
+        Load a container onto a crane for loading onto a ship.
+        Parameters: - container: The container to be loaded onto the crane.
+        """
+        yield self.env.timeout(random.uniform(1, 3))  
         self.containers_loaded += 1
         print(f"Container {container} loaded at {self.env.now}")
 
     def unload_container(self, container):
-        yield self.env.timeout(random.uniform(1, 3))  # Example unloading time
+        """
+            Unload a container from the terminal.
+            Parameters:- container: The container to be unloaded.
+        """
+        yield self.env.timeout(random.uniform(1, 3))  
         self.containers_unloaded += 1
         print(f"Container {container} unloaded at {self.env.now}")
 
@@ -45,10 +53,14 @@ def truck(env, name, terminal):
 
 
 def generate_trucks(env, terminal):
+    """
+        Generate trucks at a container terminal.
+        This method generates trucks at a container terminal in a simulation environment. 
+    """
     truck_id = 0
     while True:
         env.process(truck(env, f"Truck-{truck_id}", terminal))
-        yield env.timeout(random.expovariate(1 / 5))  # Example truck arrival rate
+        yield env.timeout(random.expovariate(1 / 5))  
         truck_id += 1
 
 
