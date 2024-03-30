@@ -1,3 +1,14 @@
+
+# Container Terminal Simulation
+
+This project is a basic simulation of a container terminal using SimPy. It models trucks arriving at the terminal, loading and unloading containers, and leaving the terminal.
+
+The simulation will run for 50 time units by default. You can adjust the simulation time by modifying the `until` parameter in the `env.run(until=50)` line in `main.py`.
+
+## Simulation Results
+
+After running the simulation, the program will print the total number of containers loaded and unloaded during the simulation.
+
 **Pre-Requisites**
 
 Pycharm
@@ -12,7 +23,7 @@ Activate the venv by running this: source {your env name}/bin/activate
 Intall the required packages mentioned in the requirements folder pip install -r requirements/requirements.txt
 
 **Run the project**
-python simulation.py
+To run the simulation, execute the simulation.py
 
 Note:
 
