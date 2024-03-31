@@ -73,7 +73,9 @@ def vessel(env, name, terminal):
         with terminal.cranes.request() as crane_request:
             yield crane_request
             print(f"{name} starting unloading at {env.now}")
-            yield env.process(terminal.unload_container(name))
+            # Unload containers
+            for container in range(1, 151):
+                yield env.process(terminal.unload_container(f"{name}-Container-{container}"))
         print(f"{name} departing from terminal at {env.now}")
 
 
